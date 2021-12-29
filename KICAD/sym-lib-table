@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "Smart_Sensor")(type "KiCad")(uri "${KIPRJMOD}/Smart_Sensor.kicad_sym")(options "")(descr ""))
+  (lib (name "ESP32-DEVKITC-32D")(type "Legacy")(uri "${KIPRJMOD}/ESP32-DEVKITC-32D/ESP32-DEVKITC-32D.lib")(options "")(descr ""))
+  (lib (name "LTC1050CN8")(type "Legacy")(uri "${KIPRJMOD}/LTC1050CN8/LTC1050CN8.lib")(options "")(descr ""))
+  (lib (name "to_5")(type "KiCad")(uri "C:/Users/abouk/Documents/0_INSA/5_ISS/Smart Device/to_5.kicad_sym")(options "")(descr ""))
+)
