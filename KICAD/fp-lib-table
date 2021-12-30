@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name "TO_5")(type "KiCad")(uri "${KIPRJMOD}/TO_5.pretty")(options "")(descr ""))
+  (lib (name "ESP32-DEVKITC-32D")(type "KiCad")(uri "${KIPRJMOD}/ESP32-DEVKITC-32D")(options "")(descr ""))
+  (lib (name "LTC1050CN8")(type "KiCad")(uri "${KIPRJMOD}/LTC1050CN8")(options "")(descr ""))
+)
