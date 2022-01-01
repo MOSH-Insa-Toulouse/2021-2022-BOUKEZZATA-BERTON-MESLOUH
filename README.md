@@ -129,11 +129,11 @@ void initialize_LoRAWAN();
 
 ## KiCAD
 
-<img src="/Assets/schema.JPG" alt="schema" />
+<img src="/Assets/shema.JPG" alt="schema" />
 
 *The two sensor sides are connected to a SPDT switch to commut between the two sensors and a voltage resistor R6 needed to get the value of R_Alu
 
-<img src="/Assets/gaz.JPF" alt="GAZ" />
+<img src="/Assets/gaz.JPG" alt="GAZ" />
 
 * The operational amplifier (LTC1050) is used to filter and amplify the current passing through the sensors' resistance
 * The amplifier must have a low offset votage
