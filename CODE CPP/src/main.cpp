@@ -25,10 +25,9 @@ float ratio; // Get ratio RS_GAS/RS_air
 int duty_cyle; //duty cycle du signal PWM pour la commande de la resistance de chauffe
 int t_1 = 0; //timestamp 1
 int t_2 = 0; //timestamp 2
-int delta_t=t_2 - t_1; // delta time
-double Kp, Ki, Kd; //Ponderations du PID (à definir en observant la reponse du systeme)
 float e_t = 0; //mesure de l'erreur a t
 float e_t_1 = 0; //mesure de l'erreur a t-1
+float e_integral= 0  //erreur de l'integral
 uint32_t grove_data; //donnée capteur grove
 uint32_t aime_data;  //donnée capteur AIME
 int R1; //
@@ -83,6 +82,13 @@ void initialize_radio() //Initialization du module LORA
 void manage_interrupt() //gestion de l'interruption du capteur
 {
   digitalWrite(Buzz_pin, 1); //active l'alarme a la detection du GAZ (interruption materielle)
+  grove_data=read_grove_sensor();
+  aime_data=read_aime_sensor();
+  payload[0] = highByte(grove_data);
+  payload[1] = lowByte(grove_data);
+  payload[2]=highByte(aime_data);  
+  payload[1]=lowByte(aime_data);
+  myLora.txBytes(payload,4); 
 }
 
 uint32_t read_grove_sensor () //Recuperation de la donnée du capteur grove
@@ -124,24 +130,30 @@ float temperature () // mesure de la temperature du capteur en fonction de R alu
   return T;
 }
 
-int manage_PID() //Correcteur PID pour maintenir la temprature a 200 degrés celcius
+int manage_PID(int consigne, int kp, int ki, int kd) //Correcteur PID pour maintenir la temprature a 200 degrés celcius
 {
   int t_2 = micros();
-  e_t = 200 - temperature();
-  float e_P = Kp * e_t;
-  float e_I = Ki * e_t * delta_t; 
-  float e_D = Kd * (e_t - e_t_1) / (delta_t);
-  t_2 = t_2;
+  float delta_t = ((float) (t_2 - t_1))/1E6
+  t_1 = t_2;
+
+
+  e_t = consigne - temperature();
+  e_integral = e_integral + e_t * delta_t; 
+  float e_D = (e_t - e_t_1) / (delta_t);
+  uint8_t C = kp*e_t + ki*e_integral + kd*e_D;
+
+  t_2 = t_1;
   e_t_1 = e_t;
-  uint8_t C = e_P + e_D + e_I;
+
+  C = fabs(C);
+
   if(C > 255) C = 255; //Pour borner la correction entre 0 et 255
  
   return C; //Duty cycle de la PWM de commande
 }
 
-void Cmd_PWM_Poly() //Commande de la resistance de chauffe en PWM
+void Cmd_PWM_Poly(int duty_cycle) //Commande de la resistance de chauffe en PWM
 {
-  int duty_cycle=manage_PID();
   ledcWrite(ledChannel,duty_cyle);
 }
 
@@ -157,11 +169,6 @@ void setup() {
 }
 
 void loop() {
-  grove_data=read_grove_sensor();
-  aime_data=read_aime_sensor();
-  payload[0] = highByte(grove_data);
-  payload[1] = lowByte(grove_data);
-  payload[2]=highByte(aime_data);  
-  payload[1]=lowByte(aime_data);
-  myLora.txBytes(payload,4); 
+  int cmd_R_poly = manage_PID(200, 1, 0, 0);
+  Cmd_PWM_Poly(cmd_R_poly);  
 }
