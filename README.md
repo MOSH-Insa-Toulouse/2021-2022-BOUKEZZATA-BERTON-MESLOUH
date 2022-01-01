@@ -1,7 +1,5 @@
 # 2021-2022-BOUKEZZATA-BERTON-MESLOUH
 
-# 2021-2022-BOUKEZZATA-BERTON-MESLOUH
-
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
