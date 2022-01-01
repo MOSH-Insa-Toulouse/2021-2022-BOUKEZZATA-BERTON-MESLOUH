@@ -401,8 +401,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "SHIELD_GAS.step",
+      "vrml": "SHIELD_GAS.wrl"
     },
     "page_layout_descr_file": ""
   },

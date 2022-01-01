@@ -30,11 +30,11 @@ float e_t_1 = 0; //mesure de l'erreur a t-1
 float e_integral= 0  //erreur de l'integral
 uint32_t grove_data; //donnée capteur grove
 uint32_t aime_data;  //donnée capteur AIME
-int R1; //
-int R2; //
-int R3; //
-int R5;  //Resistances du circuit de conditionnement selon la meme numerotation que dans KICAD !
-int Vcc; // A definir en fonction des grandeurs electriques voulues
+int R1=1E5; //
+int R2=1E3; //
+int R3=1E5; //
+int R5=1E4;  //Resistances du circuit de conditionnement selon la meme numerotation que dans KICAD !
+float V3_3 = 3.3; // A definir en fonction des grandeurs electriques voulues
 int R6; //
 const uint32_t PWM_OUT = 16;  //Pin de sortie de la commande PWM de la resistance de chauffe
 // setup des propriétés PWM
@@ -104,16 +104,16 @@ uint32_t read_grove_sensor () //Recuperation de la donnée du capteur grove
 uint32_t read_aime_sensor () //Recuperation de la donnée du capteur AIME
 {
   int sensor_aime_Value = analogRead(ADC_SENS);
-  sensor_aime_volt=(float)sensor_aime_Value/4096*5.0;
-  float R_capteur=(R1*(R2+R3)*Vcc/(R2*sensor_aime_volt)) -R1-R5; //formule justifiée en TD
+  sensor_aime_volt=(float)sensor_aime_Value/4096*V3_3;
+  float R_capteur=(1+R3/R2)*R1*V3_3/sensor_aime_volt-R1-R5; //formule justifiée en TD
   return R_capteur;
 }
 
 uint32_t read_r_alu () //Recuperation de la donnée du capteur de temparateur (R ALU)
 {
   int ADC_R_ALU = analogRead(ADC_R_Alu);
-  float ADC_R_ALU_volt=(float)ADC_R_Alu/4096*5.0;
-  float R_Alu=ADC_R_ALU_volt*R6/(3.3-ADC_R_ALU_volt);
+  float ADC_R_ALU_volt=(float)ADC_R_Alu/4096*V3_3;
+  float R_Alu=ADC_R_ALU_volt*R6/(V3_3-ADC_R_ALU_volt);
   return R_Alu;
 }
 
@@ -164,6 +164,7 @@ void setup() {
   initialize_radio(); //initialiation de la radio
   Serial2.print("sys get hwei\r\n"); // recuperation du HWEUI
   Serial.println(Serial2.readStringUntil('\n'));
+  digitalWrite(Buzz_pin, 0); // on initialise le buzzer
   attachInterrupt(INTERRUPT_PIN, manage_interrupt, LOW); //Appel de la fonction d'inerruption
   
 }
