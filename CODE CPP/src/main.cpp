@@ -42,7 +42,7 @@ const uint32_t freq = 20000;
 const uint32_t ledChannel = 0;
 const uint32_t resolution = 8;
 
-void initialize_radio() //Initialization du module LORA
+void initialize_LoRAWAN() //Initialization du module LORA
 {
   //Reset du module
   pinMode(RST, OUTPUT);
@@ -161,7 +161,7 @@ void setup() {
   Serial.begin(9600); //initialisation moniteur serie (ESP - PC)
   config_PWM(); //configuration de la PWM
   Serial2.begin(57600, SERIAL_8N1, RX, TX); //initialisation moniteur serie 2 (LORA - ESP)
-  initialize_radio(); //initialiation de la radio
+  initialize_LoRAWAN(); //initialiation de la radio
   Serial2.print("sys get hwei\r\n"); // recuperation du HWEUI
   Serial.println(Serial2.readStringUntil('\n'));
   digitalWrite(Buzz_pin, 0); // on initialise le buzzer
