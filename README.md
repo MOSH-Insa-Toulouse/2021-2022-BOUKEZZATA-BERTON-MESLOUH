@@ -22,10 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<<<<<<< HEAD
-=======
   <img src="/Assets/logo.png" alt="Logo" width="80" height="80">
->>>>>>> origin/HEAD
   <h3 align="center">Smart Device</h3>
 </div>
 
@@ -39,26 +36,11 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
-<<<<<<< HEAD
-      <a href="#getting-started">Lora</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-=======
       <a href="#LoRA">Lora</a>
     </li>
     <li><a href="#LoRAWAN">LoRAWAN</a></li>
     <li><a href="#KiCAD">KiCAD</a></li>
     <li><a href="#DATASHEET">DATASHEET</a></li>
->>>>>>> origin/HEAD
   </ol>
 </details>
 
@@ -66,15 +48,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<<<<<<< HEAD
-
-
-after the manufacture of the gas sensor an AIME, we would like to design a system from a microcontroller ESP32 to collect the data from the sensor and communicate the presence of a certain gas on a server with a LoRA module
-
-Use the `BLANK_README.md` to get started.
-=======
 After the manufacturing of the gas sensor, we would like to design a system from an ESP32 microcontroller to retrieve the data from the sensor and communicate the detection of a certain gas on a server with a LoRA module
->>>>>>> origin/HEAD
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,9 +67,7 @@ We've connected the 3 pins of the LoRA module to the ESP32
 #define RX 18  //Pin RX du module LORA
 #define TX 19  //Pin TX du module LORA
 ```
-<<<<<<< HEAD
-=======
-And I used the serial port 2 (baud 57600) of the ESP32 to communicate with the RN2483
+And We used the serial port 2 (baud 57600) of the ESP32 to communicate with the RN2483
 ```cpp
 rn2xx3 lora(Serial2);
 ```
@@ -231,7 +203,6 @@ void Cmd_PWM_Poly(int duty_cycle) //Commande de la resistance de chauffe en PWM
 
 ## DATASHEET
 
-you can find the datasheet <a href="/Assets/Datasheet_AIME_git.pdf" target="_blank"> HERE <a/>
+you can find the datasheet <a href="/Assets/Datasheet_AIME_git.pdf" target="_blank"> HERE </a>
 
 
->>>>>>> origin/HEAD
