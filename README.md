@@ -38,9 +38,9 @@
     <li>
       <a href="#LoRA">Lora</a>
     </li>
-    <li><a href="#LoRAWAN">Usage</a></li>
-    <li><a href="#KiCAD">Roadmap</a></li>
-    <li><a href="#DATASHEET">Contributing</a></li>
+    <li><a href="#LoRAWAN">LoRAWAN</a></li>
+    <li><a href="#KiCAD">KiCAD</a></li>
+    <li><a href="#DATASHEET">DATASHEET</a></li>
   </ol>
 </details>
 
