@@ -54,11 +54,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-
-after the manufacture of the gas sensor an AIME, we would like to design a system from a microcontroller ESP32 to collect the data from the sensor and communicate the presence of a certain gas on a server with a LoRA module
-
-Use the `BLANK_README.md` to get started.
+After the manufacturing of the gas sensor, we would like to design a system from an ESP32 microcontroller to retrieve the data from the sensor and communicate the detection of a certain gas on a server with a LoRA module
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -69,4 +65,10 @@ Use the `BLANK_README.md` to get started.
 ## LoRA
 
 we connected the Lora module to the TTN server "The Things Network" with the library <a href="https://github.com/jpmeijers/RN2483-Arduino-Library.git"> RN2483@jpmeijers </a>
-
+We've connected the 3 pins of the LoRA module to the ESP32
+<br/>
+```cpp
+#define RST 21 //Pin de reset du module LORA
+#define RX 18  //Pin RX du module LORA
+#define TX 19  //Pin TX du module LORA
+```
