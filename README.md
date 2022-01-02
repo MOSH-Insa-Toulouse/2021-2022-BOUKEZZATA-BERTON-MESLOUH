@@ -72,7 +72,7 @@ And We used the serial port 2 (baud 57600) of the ESP32 to communicate with the 
 rn2xx3 lora(Serial2);
 ```
 To use the simple radio communication. you have to send with the serial monitor connected to your PC this commande (`radio tx "hexa_msg"`)
-<div> <img src"/Assets/Serial Code.JPG" alt ="COM"/> </div>
+<img src="/Assets/Serial Code.JPG" alt="schema" />
 To receive radio communication, you only have to listene on the serail port 2
 All the RN2483 command lines end with "\r\n"
 
