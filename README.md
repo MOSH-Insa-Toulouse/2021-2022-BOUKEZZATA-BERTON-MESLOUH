@@ -71,9 +71,9 @@ And We used the serial port 2 (baud 57600) of the ESP32 to communicate with the 
 ```cpp
 rn2xx3 lora(Serial2);
 ```
-To use the simple radio communication. you have to send with the serial monitor connected to your PC this commande radio tx "hexa_msg"
-<div> <img src"Assets/Serial Code.JPG" /> </div>
-To receive radio communication, we have to read only on the serail port 2
+To use the simple radio communication. you have to send with the serial monitor connected to your PC this commande (`radio tx "hexa_msg"`)
+<div> <img src"/Assets/Serial Code.JPG" alt ="COM"/> </div>
+To receive radio communication, you only have to listene on the serail port 2
 All the RN2483 command lines end with "\r\n"
 
 ```cpp
@@ -131,7 +131,8 @@ void initialize_LoRAWAN();
 
 <img src="/Assets/shema.JPG" alt="schema" />
 
-*The sensors are connected to an SPDT switch to commute between the two of them and a voltage resistor R6 is required to obtain the value of R_Alu.
+* The sensors are connected to an SPDT switch to commute between the two of them
+* The resistor R6 is required to obtain the value of R_Alu.
 
 <img src="/Assets/gaz.JPG" alt="GAZ" />
 
@@ -151,7 +152,7 @@ uint32_t read_aime_sensor () //Recuperation de la donnée du capteur AIME
 
 * The gas sensor works at least at a temperature of 200°C, so we control the R_poly heater with a PWM from the ESP32, and correct the system error with a PID.
 * the resistor R4 is to define the current of the transistor surce (`Is = beta * Ib`)
-* You have to define a and b of the temparture sensor
+* You have to define (`a`) and (`b`) of the temparture sensor
 ```cpp
 int a; //
 int b; // R_aluminium = a * T(Kelvin) + b 
