@@ -58,7 +58,7 @@ After manufacturing the gas sensor, we would like to design a system from an ESP
 <!-- GETTING STARTED -->
 ## LoRA
 
-we've connected the Lora module to the TTN server "The Things Network" with the library <a href="https://github.com/jpmeijers/RN2483-Arduino-Library.git"> RN2483@jpmeijers </a>
+We used the <a href="https://github.com/jpmeijers/RN2483-Arduino-Library.git"> RN2483@jpmeijers </a> library to connect the Lora module to the TTN server "The Things Network".
 
 We've connected the 3 pins of the LoRA module to the ESP32
 <br/>
