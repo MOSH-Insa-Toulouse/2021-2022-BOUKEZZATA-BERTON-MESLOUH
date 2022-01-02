@@ -73,6 +73,7 @@ rn2xx3 lora(Serial2);
 ```
 To use the simple radio communication. you have to send with the serial monitor connected to your PC this commande (`radio tx "hexa_msg"`)
 <img src="/Assets/Serial Code.JPG" alt="schema" />
+<br/>
 To receive radio communication, you only have to listene on the serail port 2
 All the RN2483 command lines end with "\r\n"
 
