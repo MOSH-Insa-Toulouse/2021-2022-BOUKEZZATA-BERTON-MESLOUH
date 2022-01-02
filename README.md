@@ -48,7 +48,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-After the manufacturing of the gas sensor, we would like to design a system from an ESP32 microcontroller to retrieve the data from the sensor and communicate the detection of a certain gas on a server with a LoRA module
+After manufacturing the gas sensor, we would like to design a system from an ESP32 microcontroller to retrieve the data collected from the sensor and communicate the detection of a specefic gas towards a server with a LoRA module
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -73,8 +73,8 @@ rn2xx3 lora(Serial2);
 ```
 To use the simple radio communication. you have to send with the serial monitor connected to your PC this commande radio tx "hexa_msg"
 <div> <img src"Assets/Serial Code.JPG" /> </div>
-To receive radio communication, we have to read only on the serail port 2 stream data 
-All RN2483 commands finish with "\r\n"
+To receive radio communication, we have to read only on the serail port 2
+All the RN2483 command lines end with "\r\n"
 
 ```cpp
 void initialize_radio()
@@ -131,13 +131,13 @@ void initialize_LoRAWAN();
 
 <img src="/Assets/shema.JPG" alt="schema" />
 
-*The two sensor sides are connected to a SPDT switch to commut between the two sensors and a voltage resistor R6 needed to get the value of R_Alu
+*The sensors are connected to an SPDT switch to commute between the two of them and a voltage resistor R6 is required to obtain the value of R_Alu.
 
 <img src="/Assets/gaz.JPG" alt="GAZ" />
 
 * The operational amplifier (LTC1050) is used to filter and amplify the current passing through the sensors' resistance
 * The amplifier must have a low offset votage
-* To read the value of the gas sensor we use this command 
+* To read the value of the gas sensor you ave to use this command 
 ```cpp
 uint32_t read_aime_sensor () //Recuperation de la donnée du capteur AIME
 {
@@ -149,7 +149,7 @@ uint32_t read_aime_sensor () //Recuperation de la donnée du capteur AIME
 ```
 <img src="/Assets/ampli.JPG" alt="ampli" />
 
-* The gas sensor works at least at a temperature of 200°C, so we control the R_poly heater with a PWM from the ESP32, and correct the error with a PID.
+* The gas sensor works at least at a temperature of 200°C, so we control the R_poly heater with a PWM from the ESP32, and correct the system error with a PID.
 * the resistor R4 is to define the current of the transistor surce (`Is = beta * Ib`)
 * You have to define a and b of the temparture sensor
 ```cpp
@@ -196,8 +196,8 @@ void Cmd_PWM_Poly(int duty_cycle) //Commande de la resistance de chauffe en PWM
 <img src="/Assets/rpoly_cmd.JPG" alt="rpoly" />
 
 * The comparator (LT071) is used to release an interrupt on the ESP32 when the sensor detect a certain gas
-* We have defined a refrence voltage on the V+ whith the volatage divider R7 and R8
-* If the sensor detect a gas the sensor voltage ADC dropdown and the output LT071 will be 1
+* We have defined a refrence voltage on the V+ whith a volatage divider R7 and R8
+* If the sensor detect a gas, the sensor voltage ADC dropdown and the output LT071 will be 1
 
 <img src="Assets/compa.JPG" alt="compa" />
 
