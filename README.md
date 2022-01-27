@@ -40,6 +40,7 @@
     </li>
     <li><a href="#LoRAWAN">LoRAWAN</a></li>
     <li><a href="#KiCAD">KiCAD</a></li>
+    <li><a href="#Node-Red">KiCAD</a></li>
     <li><a href="#DATASHEET">DATASHEET</a></li>
   </ol>
 </details>
@@ -202,6 +203,22 @@ void Cmd_PWM_Poly(int duty_cycle) //Commande de la resistance de chauffe en PWM
 * If the sensor detect a gas, the sensor voltage ADC dropdown and the output LT071 will be 1
 
 <img src="Assets/compa.JPG" alt="compa" />
+
+we designed the PCB.
+
+<img src="Assets/PCB.png" alt="PCB" />
+
+## Node-Red
+For the last part, we needed an application to setup the system and a dashboard to display the sensor values. For this, we used Node-red to connect the gas sensor with the TTN server via LORAWAN communication.
+
+<img src="Assets/node-red.JPG" alt="flows" />
+
+The dashboard of the system
+
+<img src="Assets/NODERED_dashboard.png" alt="dashboard" />
+
+
+
 
 ## DATASHEET
 
