@@ -36,12 +36,14 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
-      <a href="#LoRA">Lora</a>
+      <a href="#lora">Lora</a>
     </li>
-    <li><a href="#LoRAWAN">LoRAWAN</a></li>
-    <li><a href="#KiCAD">KiCAD</a></li>
-    <li><a href="#Node-Red">KiCAD</a></li>
-    <li><a href="#DATASHEET">DATASHEET</a></li>
+    <li>
+      <a href="#lorawan">LoRAWAN</a>
+    </li>
+    <li><a href="#kicad">KiCAD</a></li>
+    <li><a href="#node-red">Node-Red</a></li>
+    <li><a href="#datasheet">DATASHEET</a></li>
   </ol>
 </details>
 
